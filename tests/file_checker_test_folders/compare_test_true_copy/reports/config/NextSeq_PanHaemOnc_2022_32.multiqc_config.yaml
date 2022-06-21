@@ -1,0 +1,16 @@
+custom_logo: '/analysis/reports/YNEGLH.png'
+custom_logo_url: 'https://www.leedsth.nhs.uk/a-z-of-services/the-leeds-genetics-laboratory/'
+custom_logo_title: 'Y&NE GLH'
+
+picard_config:
+    general_stats_target_coverage:
+        - 10
+        - 50
+        - 100
+
+report_header_info:
+    - Application Type: 'DNA-seq'
+    - Contact email: helena.spiewak@nhs.net
+    - Panel: PanHaemOnc
+    - Genome: hg19
+    - Pipeline version: 3.5.0 (2021-04-16)
