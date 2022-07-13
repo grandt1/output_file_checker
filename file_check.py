@@ -99,20 +99,20 @@ def compare_dirs(dir_1, dir_2, method=os.path.getsize):
                     results[relpath][1] = (method(os.path.join(root, name)))
                     files_checked += 1
                     print(f'Files checked: {files_checked}',
-                          end='\r', flush=True)
+                            end='\r', flush=True)
 
                 # Else add to dict and add empty string for dir1_result
                 else:
                     results[relpath] = ['', method(os.path.join(root, name))]
                     files_checked += 1
                     print(f'Files checked: {files_checked}',
-                          end='\r', flush=True)
+                            end='\r', flush=True)
     print(f"Files in Dir_2 = {files_checked}")
     output = []
     verified = 0
 
     # write results dictionary to csv
-    with open('/home/grandt/results.csv', 'w', encoding='UTF-8') as f:
+    with open(os.path.join(os.getcwd(),'checker_results.csv'), 'w', encoding='UTF-8') as f:
         writer = csv.writer(f)
         writer.writerow(['File Name', 'File Check 1', 'File Check 2'])
         for key, value in results.items():
@@ -121,7 +121,7 @@ def compare_dirs(dir_1, dir_2, method=os.path.getsize):
     # Iterate over results, printing mismatches and reasons
     for key, value in results.items():
         if not value[0]:
-            output.append(f'{key} is not in truth directory')
+            output.append(f'{key} is not in original directory')
             continue
         if not value[1]:
             output.append(f'{key} is not in test directory')
